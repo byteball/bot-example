@@ -1,0 +1,1 @@
+*/20 * * * * cd bot-example; node check_daemon.js 1>>~/.config/bot-example/check_daemon.log 2>>~/.config/bot-example/check_daemon.err

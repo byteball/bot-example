@@ -1,0 +1,13 @@
+{
+	"name": "bot-example",
+	"version": "1.0.0",
+	"description": "Example source code for Byteball chatbot",
+	"main": "start.js",
+	"repository": "https://github.com/byteball/bot-example.git",
+	"author": "tony",
+	"license": "MIT",
+	"dependencies": {
+		"byteballcore": "git+https://github.com/byteball/byteballcore.git",
+		"headless-byteball": "git+https://github.com/byteball/headless-byteball.git"
+	}
+}
