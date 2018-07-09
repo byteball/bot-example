@@ -22,7 +22,7 @@ Copy this pairing code to your Byteball wallet: Chat tab, Add a new device, Acce
 
 ## Next steps
 
-1. See the sources.
+1. See the sources of [start.js](https://github.com/byteball/bot-example/blob/master/start.js).
 1. https://github.com/byteball/byteballcore/wiki/Byteball-Developer-Guides
 1. Submit your new bot to the Bot Store!
 
