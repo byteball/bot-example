@@ -1,13 +1,13 @@
 {
 	"name": "bot-example",
 	"version": "1.0.0",
-	"description": "Example source code for Byteball chatbot",
+	"description": "Example source code for Obyte chatbot",
 	"main": "start.js",
 	"repository": "https://github.com/byteball/bot-example.git",
 	"author": "tony",
 	"license": "MIT",
 	"dependencies": {
-		"byteballcore": "git+https://github.com/byteball/byteballcore.git",
-		"headless-byteball": "git+https://github.com/byteball/headless-byteball.git"
+		"ocore": "git+https://github.com/byteball/ocore.git",
+		"headless-obyte": "git+https://github.com/byteball/headless-obyte.git"
 	}
 }
