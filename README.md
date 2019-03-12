@@ -28,5 +28,5 @@ Copy this pairing code to your O<sub>byte</sub> wallet: Chat tab, Add a new devi
 
 ## Help
 
-\#tech channel on slack https://slack.byteball.org.
+\#tech channel on discord https://discord.obyte.org.
 
