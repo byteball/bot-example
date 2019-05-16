@@ -1,18 +1,12 @@
 /*jslint node: true */
 'use strict';
-const constants = require('ocore/constants.js');
-const conf = require('ocore/conf');
-const db = require('ocore/db');
 const eventBus = require('ocore/event_bus');
-const validationUtils = require('ocore/validation_utils');
 const headlessWallet = require('headless-obyte');
 
-/**
- * headless wallet is ready
- */
-eventBus.once('headless_wallet_ready', () => {
+
+function onReady() {
 	headlessWallet.setupChatEventHandlers();
-	
+
 	/**
 	 * user pairs his device with the bot
 	 */
@@ -28,37 +22,34 @@ eventBus.once('headless_wallet_ready', () => {
 	eventBus.on('text', (from_address, text) => {
 		// analyze the text and respond
 		text = text.trim();
-		
+
 		const device = require('ocore/device.js');
 		if (!text.match(/^You said/))
 			device.sendMessageToDevice(from_address, 'text', "You said: " + text);
 	});
-
-});
-
-
-/**
- * user pays to the bot
- */
-eventBus.on('new_my_transactions', (arrUnits) => {
-	// handle new unconfirmed payments
-	// and notify user
 	
-//	const device = require('ocore/device.js');
-//	device.sendMessageToDevice(device_address_determined_by_analyzing_the_payment, 'text', "Received your payment");
+	/**
+	 * user pays to the bot
+	 */
+	eventBus.on('new_my_transactions', (arrUnits) => {
+		// handle new unconfirmed payments
+		// and notify user
+
+	//	const device = require('ocore/device.js');
+	//	device.sendMessageToDevice(device_address_determined_by_analyzing_the_payment, 'text', "Received your payment");
+	});
+
+	/**
+	 * payment is confirmed
+	 */
+	eventBus.on('my_transactions_became_stable', (arrUnits) => {
+		// handle payments becoming confirmed
+		// and notify user
+
+	//	const device = require('ocore/device.js');
+	//	device.sendMessageToDevice(device_address_determined_by_analyzing_the_payment, 'text', "Your payment is confirmed");
+	});
 });
-
-/**
- * payment is confirmed
- */
-eventBus.on('my_transactions_became_stable', (arrUnits) => {
-	// handle payments becoming confirmed
-	// and notify user
-	
-//	const device = require('ocore/device.js');
-//	device.sendMessageToDevice(device_address_determined_by_analyzing_the_payment, 'text', "Your payment is confirmed");
-});
-
-
+eventBus.once('headless_wallet_ready', onReady);
 
 process.on('unhandledRejection', up => { throw up; });
